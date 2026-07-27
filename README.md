@@ -64,6 +64,7 @@ https://YOUR-BACKEND-LINK
 - Recent Activity
 - Upcoming Deadlines
 - AI Assistant Panel
+<img width="1891" height="1013" alt="image" src="https://github.com/user-attachments/assets/13d713a1-1a96-40f0-a381-03ceb5812314" />
 
 ---
 
@@ -145,6 +146,7 @@ Your responsibilities:
 - Help teams complete projects faster.
 - Keep responses short, professional, and actionable.
 ```
+<img width="1914" height="999" alt="image" src="https://github.com/user-attachments/assets/d83ab8aa-9dda-497c-b944-421d7a6f65a6" />
 
 ---
 
