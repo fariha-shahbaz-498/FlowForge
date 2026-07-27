@@ -15,13 +15,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS SECOND
+// CORS SECOND - reflective origin allows credentials from any calling frontend URL
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://flow-forge-one-virid.vercel.app",
-    ],
+    origin: true,
     credentials: true,
   })
 );

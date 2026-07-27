@@ -1,146 +1,80 @@
 import axios from "axios";
 
-
-// Auth API
+const BASE_URL = "https://YOUR-BACKEND-URL.com/api";
 
 const API = axios.create({
-
-  baseURL: "http://localhost:5000/api/auth",
-
+  baseURL: `${BASE_URL}/auth`,
   headers: {
     "Content-Type": "application/json",
   },
-
 });
 
 
-
-
 // REGISTER
-
 export const registerUser = async (userData) => {
-
-  const res = await API.post(
-    "/register",
-    userData
-  );
-
+  const res = await API.post("/register", userData);
   return res.data;
-
 };
-
-
-
 
 
 // LOGIN
-
 export const loginUser = async (userData) => {
-
-  const res = await API.post(
-    "/login",
-    userData
-  );
-
+  const res = await API.post("/login", userData);
   return res.data;
-
 };
 
 
-
-
-
-
-// GET CURRENT USER
-
+// CURRENT USER
 export const getCurrentUser = async (token) => {
-
-
-  const res = await API.get(
-
-    "/me",
-
-    {
-      headers:{
-        Authorization:`Bearer ${token}`,
-      },
-    }
-
-  );
-
+  const res = await API.get("/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   return res.data;
-
 };
 
 
-
-
-
-
-
-// UPDATE PROFILE
-
+// PROFILE
 export const updateProfile = async (token, data) => {
-
-
   const res = await axios.put(
-
-    "http://localhost:5000/api/users/profile",
-
+    `${BASE_URL}/users/profile`,
     data,
-
     {
       headers:{
         Authorization:`Bearer ${token}`,
       },
     }
-
   );
 
-
   return res.data;
-
 };
 
 
-
-
-
-
-
-
-// CHANGE PASSWORD
-
+// PASSWORD
 export const changePassword = async (token, data) => {
-
-
   const res = await axios.put(
-
-    "http://localhost:5000/api/users/password",
-
+    `${BASE_URL}/users/password`,
     data,
-
     {
       headers:{
         Authorization:`Bearer ${token}`,
       },
     }
-
   );
 
-
   return res.data;
-
 };
-// ================= PROJECT API =================
 
+
+// PROJECTS
 export const getProjects = async (token) => {
   const res = await axios.get(
-    "http://localhost:5000/api/projects",
+    `${BASE_URL}/projects`,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
+      headers:{
+        Authorization:`Bearer ${token}`,
       },
     }
   );
@@ -148,13 +82,14 @@ export const getProjects = async (token) => {
   return res.data;
 };
 
-export const createProject = async (token, data) => {
+
+export const createProject = async (token,data) => {
   const res = await axios.post(
-    "http://localhost:5000/api/projects",
+    `${BASE_URL}/projects`,
     data,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
+      headers:{
+        Authorization:`Bearer ${token}`,
       },
     }
   );
@@ -162,13 +97,14 @@ export const createProject = async (token, data) => {
   return res.data;
 };
 
-export const updateProject = async (token, id, data) => {
+
+export const updateProject = async (token,id,data) => {
   const res = await axios.put(
-    `http://localhost:5000/api/projects/${id}`,
+    `${BASE_URL}/projects/${id}`,
     data,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
+      headers:{
+        Authorization:`Bearer ${token}`,
       },
     }
   );
@@ -176,12 +112,13 @@ export const updateProject = async (token, id, data) => {
   return res.data;
 };
 
-export const deleteProject = async (token, id) => {
+
+export const deleteProject = async (token,id) => {
   const res = await axios.delete(
-    `http://localhost:5000/api/projects/${id}`,
+    `${BASE_URL}/projects/${id}`,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
+      headers:{
+        Authorization:`Bearer ${token}`,
       },
     }
   );
