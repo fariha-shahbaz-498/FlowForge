@@ -18,7 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 // CORS SECOND
 app.use(
   cors({
-    origin: true,
+    origin: [
+      "http://localhost:5173",
+      "https://flow-forge-one-virid.vercel.app",
+    ],
     credentials: true,
   })
 );
