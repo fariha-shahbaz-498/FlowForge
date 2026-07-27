@@ -38,7 +38,7 @@ Frontend:
 ## Live Demo
 
 Frontend:
-https://flow-forge-one-virid.vercel.app/login
+https://flow-forge-one-virid.vercel.app/
 
 Backend:
 
