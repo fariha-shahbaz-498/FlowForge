@@ -40,12 +40,13 @@ Frontend:
 Frontend:
 https://flow-forge-one-virid.vercel.app/
 
-Backend:
+## Backend API
 
-https://YOUR-BACKEND-LINK
+The backend is deployed as a Vercel serverless API.
 
-(Replace these with your real deployment URLs.)
+Base API URL:
 
+https://flow-forge-one-virid.vercel.app/api
 ---
 
 # ✨ Features
