@@ -1,29 +1,43 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/projects";
+const BASE_URL = "https://flow-forge-one-virid.vercel.app/api/projects";
 
-const auth = (token) => ({
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
-
+// GET ALL PROJECTS
 export const getProjects = async (token) => {
-  const { data } = await axios.get(API, auth(token));
-  return data;
+  const res = await axios.get(BASE_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
 
-export const createProject = async (token, project) => {
-  const { data } = await axios.post(API, project, auth(token));
-  return data;
+// CREATE PROJECT
+export const createProject = async (token, projectData) => {
+  const res = await axios.post(BASE_URL, projectData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
 
-export const updateProject = async (token, id, project) => {
-  const { data } = await axios.put(`${API}/${id}`, project, auth(token));
-  return data;
+// UPDATE PROJECT
+export const updateProject = async (token, id, projectData) => {
+  const res = await axios.put(`${BASE_URL}/${id}`, projectData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
 
+// DELETE PROJECT
 export const deleteProject = async (token, id) => {
-  const { data } = await axios.delete(`${API}/${id}`, auth(token));
-  return data;
+  const res = await axios.delete(`${BASE_URL}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
