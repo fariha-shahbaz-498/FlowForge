@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://YOUR-BACKEND-URL.com/api";
+// Vite environment variable with local fallback
+const BASE_URL = import.meta.env?.VITE_API_BASE_URL || "http://localhost:5000/api";
 
 const API = axios.create({
   baseURL: `${BASE_URL}/auth`,
@@ -9,20 +10,17 @@ const API = axios.create({
   },
 });
 
-
 // REGISTER
 export const registerUser = async (userData) => {
   const res = await API.post("/register", userData);
   return res.data;
 };
 
-
 // LOGIN
 export const loginUser = async (userData) => {
   const res = await API.post("/login", userData);
   return res.data;
 };
-
 
 // CURRENT USER
 export const getCurrentUser = async (token) => {
@@ -34,7 +32,6 @@ export const getCurrentUser = async (token) => {
 
   return res.data;
 };
-
 
 // PROFILE
 export const updateProfile = async (token, data) => {
@@ -51,7 +48,6 @@ export const updateProfile = async (token, data) => {
   return res.data;
 };
 
-
 // PASSWORD
 export const changePassword = async (token, data) => {
   const res = await axios.put(
@@ -67,7 +63,6 @@ export const changePassword = async (token, data) => {
   return res.data;
 };
 
-
 // PROJECTS
 export const getProjects = async (token) => {
   const res = await axios.get(
@@ -81,7 +76,6 @@ export const getProjects = async (token) => {
 
   return res.data;
 };
-
 
 export const createProject = async (token,data) => {
   const res = await axios.post(
@@ -97,7 +91,6 @@ export const createProject = async (token,data) => {
   return res.data;
 };
 
-
 export const updateProject = async (token,id,data) => {
   const res = await axios.put(
     `${BASE_URL}/projects/${id}`,
@@ -111,7 +104,6 @@ export const updateProject = async (token,id,data) => {
 
   return res.data;
 };
-
 
 export const deleteProject = async (token,id) => {
   const res = await axios.delete(
