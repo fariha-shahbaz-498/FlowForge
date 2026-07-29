@@ -27,7 +27,7 @@ function Login() {
     <div className="flex min-h-screen items-center justify-center bg-slate-100 dark:bg-slate-950">
       <div className="w-[420px] rounded-3xl bg-white p-8 shadow-xl dark:bg-slate-900">
         <h1 className="text-3xl font-bold dark:text-white">
-          Welcome Back 👋
+          Welcome Back 
         </h1>
 
         <p className="mt-2 text-slate-500">

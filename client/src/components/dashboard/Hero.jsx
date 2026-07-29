@@ -32,7 +32,7 @@ function Hero({
           </p>
 
           <h1 className="mt-3 text-4xl font-bold text-slate-800 dark:text-white">
-            Welcome Back {user?.firstName || user?.name || "User"} 👋
+            Welcome Back {user?.firstName || user?.name || "User"} 
           </h1>
 
           <p className="mt-4 max-w-xl text-lg text-slate-500 dark:text-slate-300">

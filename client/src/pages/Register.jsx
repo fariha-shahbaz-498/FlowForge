@@ -36,7 +36,7 @@ function Register() {
       <div className="w-[430px] rounded-3xl bg-white dark:bg-slate-900 p-8 shadow-xl">
 
         <h1 className="text-3xl font-bold dark:text-white">
-          Create Account 🚀
+          Create Account 
         </h1>
 
         <p className="mt-2 text-slate-500">
