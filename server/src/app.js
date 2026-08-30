@@ -7,18 +7,24 @@ import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 
+// ===============================
+// CORS
+// ===============================
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
 ];
 
-if (process.env.FRONTEND_URL) {
-  allowedOrigins.push(process.env.FRONTEND_URL);
+if (process.env.CLIENT_URL) {
+  allowedOrigins.push(process.env.CLIENT_URL);
 }
 
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow requests without an origin
+      // such as Postman/server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
@@ -33,7 +39,15 @@ app.use(
   })
 );
 
+// ===============================
+// MIDDLEWARE
+// ===============================
+
 app.use(express.json());
+
+// ===============================
+// HEALTH / TEST ROUTES
+// ===============================
 
 app.get("/", (req, res) => {
   res.json({
@@ -49,8 +63,18 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// ===============================
+// API ROUTES
+// ===============================
+
 app.use("/api/auth", authRoutes);
+
 app.use("/api/projects", projectRoutes);
+
 app.use("/api/users", userRoutes);
+
+// ===============================
+// EXPORT
+// ===============================
 
 export default app;
