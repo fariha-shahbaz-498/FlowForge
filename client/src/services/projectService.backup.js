@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "/api/projects";
+const BASE_URL = "https://flow-forge-one-virid.vercel.app/api/projects";
 
 // GET ALL PROJECTS
 export const getProjects = async (token) => {
@@ -9,7 +9,6 @@ export const getProjects = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
-
   return res.data;
 };
 
@@ -20,35 +19,25 @@ export const createProject = async (token, projectData) => {
       Authorization: `Bearer ${token}`,
     },
   });
-
   return res.data;
 };
 
 // UPDATE PROJECT
 export const updateProject = async (token, id, projectData) => {
-  const res = await axios.put(
-    `${BASE_URL}/${id}`,
-    projectData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-
+  const res = await axios.put(`${BASE_URL}/${id}`, projectData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return res.data;
 };
 
 // DELETE PROJECT
 export const deleteProject = async (token, id) => {
-  const res = await axios.delete(
-    `${BASE_URL}/${id}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-
+  const res = await axios.delete(`${BASE_URL}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return res.data;
 };
