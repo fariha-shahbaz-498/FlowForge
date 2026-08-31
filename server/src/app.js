@@ -72,7 +72,27 @@ app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 
 app.use("/api/users", userRoutes);
+// Vercel serverless compatibility routes
+app.use("/auth", authRoutes);
+app.use("/projects", projectRoutes);
+app.use("/users", userRoutes);
 
+app.get("/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "FlowForge API is healthy",
+  });
+});
+
+app.get("/api/debug", (req, res) => {
+  res.json({
+    success: true,
+    url: req.url,
+    originalUrl: req.originalUrl,
+    path: req.path,
+    method: req.method,
+  });
+});
 // ===============================
 // EXPORT
 // ===============================
